@@ -1,13 +1,19 @@
 #include <Arduino.h>
-#define LED 2
+
+#define LEDPIN 2
+int delaytime = 2000;
 
 void setup(){
-    pinMode (2, OUTPUT);
-
+    Serial.begin(115200);
+    pinMode(LEDPIN, OUTPUT);
 }
+
 void loop(){
-    digitalWrite (2, HIGH);
-    delay (100);
-    digitalWrite (2, LOW);
-    delay (100);
+    digitalWrite (LEDPIN, HIGH);
+    Serial.println("Led acesso");
+    delay (delaytime);
+
+    digitalWrite (LEDPIN, LOW);
+    Serial.println("Led apagado");
+    delay (delaytime);
 }
