@@ -1,13 +1,13 @@
-#include <Arduino.h>
 #include <DHT.h>
-
+#include <Adafruit_Sensor.h>
+#include <Arduino.h>
 #define DHT_SENSOR_PIN  21 // ESP32 pin GPIO21 connected to DHT11 sensor
 #define DHT_SENSOR_TYPE DHT11
 
 DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   dht_sensor.begin(); // initialize the DHT sensor
 }
 
