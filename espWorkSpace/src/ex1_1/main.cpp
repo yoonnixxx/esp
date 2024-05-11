@@ -2,7 +2,7 @@
 
 #define LED_1 2
 #define LED_2 33
-int delaytime = 2000;
+int delaytime = 500;
 
 void setup(){
     Serial.begin(115200);
