@@ -1,8 +1,7 @@
 #include "motor.h"
 
-int main (){
+void loop (){
 
     imprime();
 
-    return 0;
 }
