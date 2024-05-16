@@ -1,18 +1,19 @@
 #pragma once 
 #include <Arduino.h>
 
-class motor {
+class Motor {
 private:
     int PWM;
-    int AIN1;
-    int AIN2;
+    int IN1;
+    int IN2;
     int pwmChannel;
     int resolution;
+    int freq;
 
 public:
-    void motor(int IN1pin, int IN2pin, int PWMpin, int pwmChannel, int resolution);
-    void drive1(int motor, int velocidade, int pwmChannel);
-    void drive2(int motor, int velocidade, int pwmChannel);
-    void stop(int motor, int pwmChannel);
-}
+    Motor(int IN1pin, int IN2pin, int PWMpin, int pwmChannell, int resolutionn, int frequencia);
+    void drive1(int velocidade, int pwmChannel, int INa, int INb);
+    void drive2(int motor, int velocidade, int pwmChannel, int sentido);
+    void stop(int pwmChannel);
+};
 
