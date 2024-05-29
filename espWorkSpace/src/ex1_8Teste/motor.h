@@ -16,4 +16,3 @@ public:
     void drive2(int motor, int velocidade, int pwmChannel, int sentido);
     void stop(int pwmChannel);
 };
-
