@@ -11,7 +11,7 @@ void setup()
 }
 
 void loop()
-{
+{// pisca um led sem usar delay
     if (millis() - tempo >= delaytime)
     {
         tempo = millis();

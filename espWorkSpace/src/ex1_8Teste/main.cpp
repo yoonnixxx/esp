@@ -1,21 +1,6 @@
 #include <Arduino.h>
 #include "motor.h"
 
-// Declaração pinos digitais da ponte-h
-/*#define PWM1 32
-#define AIN1 25
-#define AIN2 26
-#define PWM2 33
-#define BIN1 27
-#define BIN2 14
-
-
-
-// Definindo propriedades sinal PWM ESP
-const int freq = 30000;
-const int pwmChannel_A = 0;
-const int pwmChannel_B = 1;
-const int resolution = 8;*/
 #define motorA 1
 #define motorB 2
 const unsigned int PWM1 = 26;
@@ -31,12 +16,15 @@ const unsigned int freq = 500;
 const unsigned int pwmChannel_A = 0;
 const unsigned int pwmChannel_B = 0;
 const unsigned int resolution = 8;
-Motor motor1 (AIN1, AIN2, PWM1, pwmChannel_A, resolution, freq);
-Motor motor2 (BIN1, BIN2, PWM2, pwmChannel_B, resolution, freq);
 
 void setup()
 {
+    Serial.begin(115200);
+    Motor motor1(AIN1, AIN2, PWM1, pwmChannel_A, resolution, freq);
+    Motor motor2(BIN1, BIN2, PWM2, pwmChannel_B, resolution, freq);
 
+    pinMode(STBY, OUTPUT);
+    digitalWrite(STBY, HIGH);
 }
 
 void loop()

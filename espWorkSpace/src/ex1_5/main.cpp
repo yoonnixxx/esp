@@ -11,7 +11,7 @@ void setup(){
 }
 
 void loop(){
-
+    // le e calcula o delay pelo potenciometro
     delaytime = analogRead(POT);
     delaytime= map(delaytime, 0, 4096, 10000, 100);
     digitalWrite (LEDPIN, HIGH);

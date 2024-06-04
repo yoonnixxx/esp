@@ -12,30 +12,29 @@ void setup() {
 }
 
 void loop() {
-  // read humidity
-  float humi  = dht_sensor.readHumidity();
-  // read temperature in Celsius
-  float tempC = dht_sensor.readTemperature();
-  // read temperature in Fahrenheit
-  float tempF = dht_sensor.readTemperature(true);
+   // humidade 
+    float humi = dht_sensor.readHumidity();
+    // temp em celsius 
+    float tempC = dht_sensor.readTemperature();
+    
+    // testa se deu pra medir ou não 
+    if (isnan(tempC) || isnan(tempF) || isnan(humi))
+    {
+        SerialBT.println("Failed to read from DHT sensor!");
+    }
+    else // imprimi
+    {
+        SerialBT.print("Humidity: ");
+        SerialBT.print(humi);
+        SerialBT.print("%");
 
-  // check whether the reading is successful or not
-  if ( isnan(tempC) || isnan(tempF) || isnan(humi)) {
-    Serial.println("Failed to read from DHT sensor!");
-  } else {
-    Serial.print("Humidity: ");
-    Serial.print(humi);
-    Serial.print("%");
+        SerialBT.print("  |  ");
 
-    Serial.print("  |  ");
-
-    Serial.print("Temperature: ");
-    Serial.print(tempC);
-    Serial.print("°C  ~  ");
-    Serial.print(tempF);
-    Serial.println("°F");
-  }
-
-  // wait a 2 seconds between readings
-  delay(10000);
+        SerialBT.print("Temperature: ");
+        SerialBT.print(tempC);
+        SerialBT.print("°C  ~  ");
+        SerialBT.print(tempF);
+        SerialBT.println("°F");
+    }
+    delay(2000);
 }
