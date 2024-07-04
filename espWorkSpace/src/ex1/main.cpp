@@ -8,6 +8,7 @@ void Para(void *parametro){
     Serial.println("Led apagado");
 
     }
+    
 void setup(){
     Serial.begin(115200);
     //pinMode(LEDPIN, OUTPUT);
